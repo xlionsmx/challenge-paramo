@@ -1,18 +1,25 @@
-package sat.recruitment.api.controller;
+package sat.recruitment.api.dto;
 
-public class User {
-	public String name;
-	public String email;
-	public String address;
-	public String phone;
-	public String userType;
-	public Double money;
+import javax.validation.constraints.NotNull;
+
+
+public class UserDto {
+        @NotNull(message = "The name is required")
+	private String name;
+        @NotNull(message = "The email is required")
+	private String email;
+        @NotNull(message = "The address is required")
+	private String address;
+        @NotNull(message = "The phone is required")
+	private String phone;
+	private String userType;
+	private Double money;
 	
-	public User() {
+	public UserDto() {
 		
 	}
 
-	public User(String name, String email, String address, String phone, String userType, Double money) {
+	public UserDto(String name, String email, String address, String phone, String userType, Double money) {
 		super();
 		this.name = name;
 		this.email = email;
@@ -69,4 +76,6 @@ public class User {
 	public void setMoney(Double money) {
 		this.money = money;
 	}
+        
+
 }
