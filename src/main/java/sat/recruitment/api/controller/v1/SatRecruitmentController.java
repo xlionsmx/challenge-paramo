@@ -46,7 +46,6 @@ public class SatRecruitmentController {
 
             User newUser =  UserFactory.getUserByType(messageBody.getUserType());
             userMapper.dtoToUser(messageBody, newUser);
-            System.out.println(newUser.getMoney());
             return newUser;
          
 	}
@@ -56,7 +55,7 @@ public class SatRecruitmentController {
         @ExceptionHandler(MethodArgumentNotValidException.class)
         public Map<String, String> handleMethodArgumentNotValid(MethodArgumentNotValidException ex) {
             
-            Object errorsWrapped = new Object();
+            
             Map<String, String> errors = new HashMap<>();
 
             ex.getBindingResult().getFieldErrors().forEach(error -> 
